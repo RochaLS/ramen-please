@@ -11,5 +11,7 @@ import Foundation
 class Restaurant {
     var name = ""
     var address = ""
-    var rating =  0
+    var rating: Float = 0
+    var priceLevel = 0
+    var isOpen = false
 }

@@ -38,6 +38,7 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.startUpdatingLocation()
+        
     }
     
     
@@ -60,6 +61,7 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
                 print("Response sucessful!")
                 let restaurantJSON = JSON(response.result.value!)
                 print(url)
+                print(restaurantJSON)
                 self.updateRestaurantData(json: restaurantJSON)
             } else {
                 print("Error \(String(describing: response.result.error))")
@@ -75,16 +77,23 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
             
             if let restaurantName = subJSON["name"].string {
                 newRestaurant.name = restaurantName
-
-                
-                restaurants.append(newRestaurant)
             }
             if let restaurantAddress = subJSON["formatted_address"].string {
                 newRestaurant.address = restaurantAddress
             }
-            if let restaurantRating = subJSON["rating"].int {
+            if let restaurantRating = subJSON["rating"].float {
                 newRestaurant.rating = restaurantRating
             }
+            if let restaurantIsOpen = subJSON["opening_hours"].bool {
+                newRestaurant.isOpen = restaurantIsOpen
+            }
+            
+            if let restaurantPriceLevel = subJSON["price_level"].int {
+                newRestaurant.priceLevel = restaurantPriceLevel
+            }
+            
+            print(newRestaurant.rating)
+             restaurants.append(newRestaurant)
         }
         self.tableView.reloadData()
 //        print(restaurants.count)

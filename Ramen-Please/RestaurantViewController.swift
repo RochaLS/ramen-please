@@ -11,14 +11,33 @@ import UIKit
 class RestaurantViewController: UIViewController {
     
     var restaurant: Restaurant!
-
+    
+    @IBOutlet weak var restaurantNameLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var openLabel: UILabel!
+    @IBOutlet weak var priceLevelLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(restaurant.name)
-        print(restaurant.address)
 
         // Do any additional setup after loading the view.
+        updateUIWithRestaurantInfo()
+    }
+    
+    func updateUIWithRestaurantInfo() {
+        restaurantNameLabel.text = restaurant.name
+        ratingLabel.text = "\(String(restaurant.rating))"
+        if restaurant.priceLevel < 1 {
+            priceLevelLabel.text = "$"
+        } else {
+            priceLevelLabel.text = String(repeating: "$", count: restaurant.priceLevel)
+        }
+        
+        if restaurant.isOpen {
+            openLabel.text = "Open!"
+        } else {
+            openLabel.text = "Closed"
+        }
     }
     
 
