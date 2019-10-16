@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1631A9812356BDA00077C585 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A9802356BDA00077C585 /* RestaurantViewController.swift */; };
 		1640989923480FC700A3B45B /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1640989823480FC700A3B45B /* Restaurant.swift */; };
 		16DD6DDB2346F3740087E4E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD6DDA2346F3740087E4E6 /* AppDelegate.swift */; };
 		16DD6DDD2346F3740087E4E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD6DDC2346F3740087E4E6 /* SceneDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1631A9802356BDA00077C585 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		1640989823480FC700A3B45B /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		16DD6DD72346F3740087E4E6 /* Ramen-Please.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ramen-Please.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16DD6DDA2346F3740087E4E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				16DD6DDE2346F3740087E4E6 /* ViewController.swift */,
+				1631A9802356BDA00077C585 /* RestaurantViewController.swift */,
 				1640989823480FC700A3B45B /* Restaurant.swift */,
 				16533AD92352D90E000C5300 /* Supporting Files */,
 				16DD6DE82346F3760087E4E6 /* Info.plist */,
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1640989923480FC700A3B45B /* Restaurant.swift in Sources */,
+				1631A9812356BDA00077C585 /* RestaurantViewController.swift in Sources */,
 				16DD6DDF2346F3740087E4E6 /* ViewController.swift in Sources */,
 				16DD6DDB2346F3740087E4E6 /* AppDelegate.swift in Sources */,
 				16DD6DDD2346F3740087E4E6 /* SceneDelegate.swift in Sources */,

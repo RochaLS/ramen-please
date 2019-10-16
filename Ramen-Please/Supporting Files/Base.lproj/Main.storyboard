@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Ramen for Everyone!-->
+        <!--Ramen places near you! 😋-->
         <scene sceneID="yYh-VS-yA9">
             <objects>
                 <tableViewController id="vlG-sW-ubh" customClass="ViewController" customModule="Ramen_Please" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,7 +24,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="wIg-f4-4CW" kind="show" id="YJk-b7-xfO"/>
+                                    <segue destination="wIg-f4-4CW" kind="show" identifier="ToRestaurant" id="MeM-aB-AB2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -33,7 +33,7 @@
                             <outlet property="delegate" destination="vlG-sW-ubh" id="Rtn-p1-Qb5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Ramen for Everyone!" id="O6O-a9-VTT"/>
+                    <navigationItem key="navigationItem" title="Ramen places near you! 😋" id="O6O-a9-VTT"/>
                     <connections>
                         <outlet property="tableView" destination="0ZK-xN-QcE" id="gOq-3d-8nq"/>
                     </connections>
@@ -45,7 +45,7 @@
         <!--RestaurantViewController-->
         <scene sceneID="TcN-GN-6YV">
             <objects>
-                <viewController id="wIg-f4-4CW" userLabel="RestaurantViewController" sceneMemberID="viewController">
+                <viewController id="wIg-f4-4CW" userLabel="RestaurantViewController" customClass="RestaurantViewController" customModule="Ramen_Please" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qBo-II-yAm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,7 +70,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="wDK-7L-ylD"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KVP-iq-giW"/>
+                    <navigationItem key="navigationItem" title="Place Information" id="KVP-iq-giW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJw-ub-90b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,6 +85,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.90980404615402222" green="0.25450202057986732" blue="0.2097510157755105" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>

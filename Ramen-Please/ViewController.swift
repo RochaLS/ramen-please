@@ -87,6 +87,7 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
             }
         }
         self.tableView.reloadData()
+//        print(restaurants.count)
     }
     
     
@@ -108,7 +109,9 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
 //            print(longitute)
             
             let query = "ramen restaurant"
-            let params = ["query": query, "location": "\(latitute),\(longitute)", "radius": "1500", "key": API_KEY ]
+            let params = ["query": query, "location": "\(latitute),\(longitute)", "radius": "1000", "key": API_KEY ]
+            
+            
             
             getRestaurant(url: GOOGLE_URL, params: params)
         }
@@ -124,8 +127,15 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
         print("Error updating location! \(error)")
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+    //MARK: - Segue
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! RestaurantViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.restaurant = restaurants[indexPath.row]
+        }
     }
 
 }
