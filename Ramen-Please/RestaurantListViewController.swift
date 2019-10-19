@@ -12,12 +12,11 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 
-class ViewController: UITableViewController, CLLocationManagerDelegate {
+class RestaurantListViewController: UITableViewController, CLLocationManagerDelegate {
     
     var restaurants = [Restaurant]()
     let locationManager = CLLocationManager()
-    var didFindLocation = false
-    let GOOGLE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json"
+    var location: CLLocation!
     let API_KEY = "AIzaSyDy7W-43K8pRLP-wnja0KuqoNBnat5FQjc"
     
 
@@ -60,9 +59,7 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
             if response.result.isSuccess {
                 print("Response sucessful!")
                 let restaurantJSON = JSON(response.result.value!)
-                print(url)
-                print(restaurantJSON)
-                self.updateRestaurantData(json: restaurantJSON)
+                self.getDataFromJSON(json: restaurantJSON)
             } else {
                 print("Error \(String(describing: response.result.error))")
             }
@@ -71,7 +68,7 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
     
     // MARK: - Parsing JSON and Creating instances of the restaurant class
     
-    func updateRestaurantData(json: JSON) {
+    func getDataFromJSON(json: JSON) {
         for (_, subJSON) in json["results"] {
             let newRestaurant = Restaurant()
             
@@ -84,7 +81,7 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
             if let restaurantRating = subJSON["rating"].float {
                 newRestaurant.rating = restaurantRating
             }
-            if let restaurantIsOpen = subJSON["opening_hours"].bool {
+            if let restaurantIsOpen = subJSON["opening_hours"]["open_now"].bool {
                 newRestaurant.isOpen = restaurantIsOpen
             }
             
@@ -92,7 +89,13 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
                 newRestaurant.priceLevel = restaurantPriceLevel
             }
             
-            print(newRestaurant.rating)
+            if let restaurantLat = subJSON["geometry"]["location"]["lat"].double {
+                newRestaurant.lat = restaurantLat
+            }
+            
+            if let restaurantLng = subJSON["geometry"]["location"]["lng"].double {
+                newRestaurant.lng = restaurantLng
+            }
              restaurants.append(newRestaurant)
         }
         self.tableView.reloadData()
@@ -105,7 +108,7 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         restaurants = []
-        let location = locations.last!
+        location = locations.last!
         
         if location.horizontalAccuracy > 0 {
             locationManager.stopUpdatingLocation()
@@ -121,7 +124,7 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
             let params = ["query": query, "location": "\(latitute),\(longitute)", "radius": "1000", "key": API_KEY ]
             
             
-            
+            let GOOGLE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json"
             getRestaurant(url: GOOGLE_URL, params: params)
         }
     }
@@ -144,6 +147,7 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
         
         if let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.restaurant = restaurants[indexPath.row]
+            destinationVC.userLocation = location
         }
     }
 

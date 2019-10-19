@@ -14,4 +14,6 @@ class Restaurant {
     var rating: Float = 0
     var priceLevel = 0
     var isOpen = false
+    var lat: Double = 0
+    var lng: Double = 0
 }
