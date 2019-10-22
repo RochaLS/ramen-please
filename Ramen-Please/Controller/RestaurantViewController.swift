@@ -16,7 +16,7 @@ class RestaurantViewController: UIViewController {
     
     var restaurant: Restaurant!
     var userLocation: CLLocation!
-    let API_KEY = "AIzaSyDy7W-43K8pRLP-wnja0KuqoNBnat5FQjc"
+    let API_KEY = Security.API_KEY
     
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
@@ -93,19 +93,31 @@ class RestaurantViewController: UIViewController {
     
     func mapConfig() {
         let origin = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-        let destination = CLLocationCoordinate2D(latitude: restaurant.lat , longitude: restaurant.lng)
+        let destination = CLLocationCoordinate2D(latitude: restaurant.lat! , longitude: restaurant.lng!)
         
         // Setting bounds for the camera, so the camera can show both destination and origin on the map
         let bounds = GMSCoordinateBounds(coordinate: origin, coordinate: destination)
         
         // Creating camera
-        let camera = GMSCameraPosition.camera(withLatitude: Double(restaurant.lat), longitude: Double(restaurant.lng), zoom: 14)
+        let camera = GMSCameraPosition.camera(withLatitude: Double(restaurant.lat!), longitude: Double(restaurant.lng!), zoom: 14)
         
         map.camera = camera
         map.isMyLocationEnabled = true
         
+        
+        do {
+          // Set the map style by passing the URL of the local file.
+            if let styleURL = Bundle.main.url(forResource: traitCollection.userInterfaceStyle == .dark ? "NightMap" : "Default", withExtension: "json") {
+                map.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+            } catch {
+                NSLog("One or more of the map styles failed to load. \(error)")
+            }
+        
         // Inserting markers into the map
-        let position = CLLocationCoordinate2D(latitude: restaurant.lat, longitude: restaurant.lng)
+        let position = CLLocationCoordinate2D(latitude: restaurant.lat!, longitude: restaurant.lng!)
         let marker = GMSMarker(position: position)
         
         marker.title = restaurant.name
@@ -135,7 +147,7 @@ class RestaurantViewController: UIViewController {
     
     func getRoute() {
         let url = "https://maps.googleapis.com/maps/api/directions/json?"
-        let params = ["origin": "\(userLocation.coordinate.latitude), \(userLocation.coordinate.longitude)", "destination": "\(restaurant.lat),\(restaurant.lng)", "key": API_KEY ]
+        let params = ["origin": "\(userLocation.coordinate.latitude), \(userLocation.coordinate.longitude)", "destination": "\(restaurant.lat!),\(restaurant.lng!)", "key": API_KEY ]
         Alamofire.request(url, method: .get, parameters: params).responseJSON { (response) in
             if response.result.isSuccess {
                 print("Response sucessful!")

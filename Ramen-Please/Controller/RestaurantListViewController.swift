@@ -17,7 +17,7 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
     var restaurants = [Restaurant]()
     let locationManager = CLLocationManager()
     var location: CLLocation!
-    let API_KEY = "AIzaSyDy7W-43K8pRLP-wnja0KuqoNBnat5FQjc"
+    let API_KEY = Security.API_KEY
     
 
     override func viewDidLoad() {
@@ -70,33 +70,18 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
     
     func getDataFromJSON(json: JSON) {
         for (_, subJSON) in json["results"] {
-            let newRestaurant = Restaurant()
             
-            if let restaurantName = subJSON["name"].string {
-                newRestaurant.name = restaurantName
-            }
-            if let restaurantAddress = subJSON["formatted_address"].string {
-                newRestaurant.address = restaurantAddress
-            }
-            if let restaurantRating = subJSON["rating"].float {
-                newRestaurant.rating = restaurantRating
-            }
-            if let restaurantIsOpen = subJSON["opening_hours"]["open_now"].bool {
-                newRestaurant.isOpen = restaurantIsOpen
-            }
+            let restaurantName = subJSON["name"].string ?? ""
+            let restaurantAddress = subJSON["formatted_address"].string ?? ""
+            let restaurantRating = subJSON["rating"].float ?? 0.0
+            let restaurantIsOpen = subJSON["opening_hours"]["open_now"].bool ?? false
+            let restaurantPriceLevel = subJSON["price_level"].int ?? 0
+            let restaurantLat = subJSON["geometry"]["location"]["lat"].double ?? 0
+            let restaurantLng = subJSON["geometry"]["location"]["lng"].double ?? 0
             
-            if let restaurantPriceLevel = subJSON["price_level"].int {
-                newRestaurant.priceLevel = restaurantPriceLevel
-            }
+            let newRestaurant = Restaurant(name: restaurantName, address: restaurantAddress, rating: restaurantRating, priceLevel: restaurantPriceLevel, isOpen: restaurantIsOpen, lat: restaurantLat, lng: restaurantLng)
             
-            if let restaurantLat = subJSON["geometry"]["location"]["lat"].double {
-                newRestaurant.lat = restaurantLat
-            }
-            
-            if let restaurantLng = subJSON["geometry"]["location"]["lng"].double {
-                newRestaurant.lng = restaurantLng
-            }
-             restaurants.append(newRestaurant)
+            restaurants.append(newRestaurant)
         }
         self.tableView.reloadData()
 //        print(restaurants.count)
