@@ -14,6 +14,7 @@
 		1631A989235ACE690077C585 /* Silver.json in Resources */ = {isa = PBXBuildFile; fileRef = 1631A988235ACE690077C585 /* Silver.json */; };
 		1631A98B235D40740077C585 /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A98A235D40740077C585 /* Security.swift */; };
 		1640989923480FC700A3B45B /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1640989823480FC700A3B45B /* Restaurant.swift */; };
+		16789FB023611F860029017C /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16789FAF23611F860029017C /* RestaurantCell.swift */; };
 		16DD6DDB2346F3740087E4E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD6DDA2346F3740087E4E6 /* AppDelegate.swift */; };
 		16DD6DDD2346F3740087E4E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD6DDC2346F3740087E4E6 /* SceneDelegate.swift */; };
 		16DD6DDF2346F3740087E4E6 /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD6DDE2346F3740087E4E6 /* RestaurantListViewController.swift */; };
@@ -31,6 +32,7 @@
 		1631A988235ACE690077C585 /* Silver.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Silver.json; sourceTree = "<group>"; };
 		1631A98A235D40740077C585 /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
 		1640989823480FC700A3B45B /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		16789FAF23611F860029017C /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantCell.swift; path = "Ramen-Please/View/RestaurantCell.swift"; sourceTree = SOURCE_ROOT; };
 		16DD6DD72346F3740087E4E6 /* Ramen-Please.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ramen-Please.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16DD6DDA2346F3740087E4E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16DD6DDC2346F3740087E4E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		1631A98E235EAA650077C585 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				16789FAF23611F860029017C /* RestaurantCell.swift */,
 				16DD6DE02346F3740087E4E6 /* Main.storyboard */,
 				16DD6DE52346F3760087E4E6 /* LaunchScreen.storyboard */,
 			);
@@ -287,6 +290,7 @@
 				16DD6DDF2346F3740087E4E6 /* RestaurantListViewController.swift in Sources */,
 				16DD6DDB2346F3740087E4E6 /* AppDelegate.swift in Sources */,
 				16DD6DDD2346F3740087E4E6 /* SceneDelegate.swift in Sources */,
+				16789FB023611F860029017C /* RestaurantCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

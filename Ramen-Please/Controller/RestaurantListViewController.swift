@@ -46,9 +46,13 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RamenCell", for: indexPath)
-        cell.textLabel?.text = restaurants[indexPath.row].name
-        cell.textLabel?.font = UIFont(name:"Arial Rounded MT" , size: 16)
+        let restaurant = restaurants[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
+        
+        cell.setLabels(restaurant: restaurant)
+        
+        
         return cell
     }
     
