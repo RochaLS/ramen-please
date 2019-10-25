@@ -19,9 +19,11 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
     var location: CLLocation!
     let API_KEY = Security.API_KEY
     
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
         // Row styling
@@ -38,7 +40,11 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.startUpdatingLocation()
         
+        
+        
     }
+    
+    //MARK: - TableView Methods
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +53,7 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let restaurant = restaurants[indexPath.row]
+        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
         
@@ -63,6 +70,7 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
             if response.result.isSuccess {
                 print("Response sucessful!")
                 let restaurantJSON = JSON(response.result.value!)
+                print(restaurantJSON)
                 self.getDataFromJSON(json: restaurantJSON)
             } else {
                 print("Error \(String(describing: response.result.error))")
@@ -85,10 +93,17 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
             
             let newRestaurant = Restaurant(name: restaurantName, address: restaurantAddress, rating: restaurantRating, priceLevel: restaurantPriceLevel, isOpen: restaurantIsOpen, lat: restaurantLat, lng: restaurantLng)
             
-            restaurants.append(newRestaurant)
+            if newRestaurant.priceLevel != 0 {
+                restaurants.append(newRestaurant)
+            }
         }
+        
+        
+        //Initial array sorted by price from cheapest to more expensive
+        restaurants.sort { $0.priceLevel! < $1.priceLevel! }
+        
+        
         self.tableView.reloadData()
-//        print(restaurants.count)
     }
     
     
@@ -96,7 +111,6 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
     //MARK: - Location Manager Delegate Methods
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        restaurants = []
         location = locations.last!
         
         if location.horizontalAccuracy > 0 {
@@ -105,10 +119,6 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
             
             let latitute = location.coordinate.latitude
             let longitute = location.coordinate.longitude
-            
-//            print(latitute)
-//            print(longitute)
-            
             let query = "ramen restaurant"
             let params = ["query": query, "location": "\(latitute),\(longitute)", "radius": "1000", "key": API_KEY ]
             
@@ -119,12 +129,12 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-       if let error = error as? CLError, error.code == .denied {
-          // Location updates are not authorized.
-          manager.stopUpdatingLocation()
-          return
-       }
-       // Notify the user of any errors.
+        if let error = error as? CLError, error.code == .denied {
+            // Location updates are not authorized.
+            manager.stopUpdatingLocation()
+            return
+        }
+        // Notify the user of any errors.
         print("Error updating location! \(error)")
     }
     
@@ -139,6 +149,79 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
             destinationVC.userLocation = location
         }
     }
+    
+    
 
+    
+    
 }
+
+//MARK: - Extension Implementing View Picker
+
+
+extension RestaurantListViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
+    var picker: UIPickerView {
+        return UIPickerView()
+    }
+    var choices: [String] {
+        return ["Rating", "Most Expensive", "Cheapest"]
+    }
+    
+    // Creating alert show the pickerview
+    
+    @IBAction func sortButtonPressed(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Sort by:", message: "\n\n\n\n\n\n", preferredStyle: .alert)
+        alert.isModalInPresentation = true
+        
+        
+        let pickerFrame = UIPickerView(frame: CGRect(x: 5, y: 20, width: 250, height: 140)) // Positioning picker frame
+        alert.view.addSubview(pickerFrame)
+        
+        pickerFrame.dataSource = self
+        pickerFrame.delegate = self
+        
+        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (action) in
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    //Picker view data source and delegate methods
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return choices.count
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return choices[row]
+    }
+    
+    
+    //Sorting restaurants array when selecting row
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        var sortedRestaurants = [Restaurant]()
+        if choices[row] == "Rating" {
+            sortedRestaurants = restaurants.sorted { $0.rating > $1.rating}
+        } else if choices[row] == "Most Expensive" {
+            sortedRestaurants = restaurants.sorted { $0.priceLevel! > $1.priceLevel!}
+        } else if choices[row] == "Cheapest" {
+            sortedRestaurants = restaurants.sorted { $0.priceLevel! < $1.priceLevel!}
+        }
+        
+        restaurants = sortedRestaurants
+        tableView.reloadData()
+    }
+}
+
+
+    
+    
+   
+
+
 

@@ -43,7 +43,13 @@
                             <outlet property="delegate" destination="vlG-sW-ubh" id="Rtn-p1-Qb5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Ramen places near you! 🍜 😋" id="O6O-a9-VTT"/>
+                    <navigationItem key="navigationItem" title="Ramen places near you! 🍜 😋" id="O6O-a9-VTT">
+                        <barButtonItem key="rightBarButtonItem" title="Sort" id="QyC-7h-vtw">
+                            <connections>
+                                <action selector="sortButtonPressed:" destination="vlG-sW-ubh" id="v9q-K3-bVV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="0ZK-xN-QcE" id="gOq-3d-8nq"/>
                     </connections>

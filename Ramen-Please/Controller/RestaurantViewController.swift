@@ -64,11 +64,6 @@ class RestaurantViewController: UIViewController {
     
     func priceLevelStyling() {
         switch restaurant.priceLevel {
-        case 0:
-            priceL1.text = "-"
-            priceL2.text = "-"
-            priceL3.text = "-"
-            priceL4.text = "-"
         case 1:
             priceL1.textColor = #colorLiteral(red: 0, green: 0.7411764706, blue: 0.337254902, alpha: 1)
         case 2:
@@ -153,7 +148,7 @@ class RestaurantViewController: UIViewController {
                 print("Response sucessful!")
                 let routeJSON = JSON(response.result.value!)
                 print(url)
-                print(routeJSON)
+//                print(routeJSON)
                 self.drawRoute(json: routeJSON)
             } else {
                 print("Error \(String(describing: response.result.error))")

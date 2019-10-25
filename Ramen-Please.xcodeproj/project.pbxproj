@@ -89,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				1631A98A235D40740077C585 /* Security.swift */,
-				16DD6DDA2346F3740087E4E6 /* AppDelegate.swift */,
 				16DD6DDC2346F3740087E4E6 /* SceneDelegate.swift */,
 				16DD6DE32346F3760087E4E6 /* Assets.xcassets */,
 				1631A982235AC9890077C585 /* DarkMap.json */,
@@ -121,6 +120,7 @@
 		16DD6DD92346F3740087E4E6 /* Ramen-Please */ = {
 			isa = PBXGroup;
 			children = (
+				16DD6DDA2346F3740087E4E6 /* AppDelegate.swift */,
 				1631A98C235EAA270077C585 /* Model */,
 				1631A98E235EAA650077C585 /* View */,
 				1631A98D235EAA3A0077C585 /* Controller */,
