@@ -10,7 +10,12 @@ import UIKit
 
 class RestaurantCell: UITableViewCell {
 
-    @IBOutlet weak var secondaryLabel: UILabel!
+
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var isOpenLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,11 +29,16 @@ class RestaurantCell: UITableViewCell {
     }
     
     func setLabels(restaurant: Restaurant) {
-        self.textLabel?.text = restaurant.name
-        self.textLabel?.font = UIFont(name:"Arial Rounded MT" , size: 16)
-        secondaryLabel.text = String(restaurant.rating)
-        secondaryLabel.font = UIFont(name:"Arial Rounded MT" , size: 16)
-        secondaryLabel.textColor = #colorLiteral(red: 1, green: 0.8431372549, blue: 0.2235294118, alpha: 1)
+        nameLabel.text = restaurant.name
+        ratingLabel.text = String(restaurant.rating)
+        ratingLabel.textColor = #colorLiteral(red: 1, green: 0.8431372549, blue: 0.2235294118, alpha: 1)
+        priceLabel.text = String(repeating: "$", count: restaurant.priceLevel!)
+        priceLabel.textColor = #colorLiteral(red: 0, green: 0.7411764706, blue: 0.337254902, alpha: 1)
+        isOpenLabel.text = restaurant.isOpen ? "Open" : "Closed"
+        isOpenLabel.textColor = restaurant.isOpen ? #colorLiteral(red: 0, green: 0.7411764706, blue: 0.337254902, alpha: 1) : #colorLiteral(red: 0.9896159768, green: 0.1559592187, blue: 0.1507968903, alpha: 1)
+        
+        
+        
     }
 
 }

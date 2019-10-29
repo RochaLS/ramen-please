@@ -16,24 +16,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="70" id="wtR-lo-mcf" customClass="RestaurantCell" customModule="Ramen_Please" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="90" id="wtR-lo-mcf" customClass="RestaurantCell" customModule="Ramen_Please" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wtR-lo-mcf" id="F6S-zy-iX0">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQX-tr-Ehn">
-                                            <rect key="frame" x="352" y="25" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQX-tr-Ehn" userLabel="Rating">
+                                            <rect key="frame" x="30" y="47" width="49" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pK0-wm-T4i">
+                                            <rect key="frame" x="20" y="19" width="133" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPm-pn-Loy">
+                                            <rect key="frame" x="104" y="47" width="39" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEg-wT-zrS">
+                                            <rect key="frame" x="327" y="34.5" width="67" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="MEg-wT-zrS" firstAttribute="centerY" secondItem="F6S-zy-iX0" secondAttribute="centerY" id="4QW-V4-lpZ"/>
+                                        <constraint firstItem="pK0-wm-T4i" firstAttribute="top" secondItem="F6S-zy-iX0" secondAttribute="top" constant="19" id="6vl-bd-HgE"/>
+                                        <constraint firstItem="SQX-tr-Ehn" firstAttribute="top" secondItem="pK0-wm-T4i" secondAttribute="bottom" constant="8" id="8VA-MT-qfq"/>
+                                        <constraint firstItem="LPm-pn-Loy" firstAttribute="leading" secondItem="SQX-tr-Ehn" secondAttribute="trailing" constant="25" id="EZv-CQ-rBL"/>
+                                        <constraint firstItem="SQX-tr-Ehn" firstAttribute="leading" secondItem="F6S-zy-iX0" secondAttribute="leading" constant="30" id="PkE-pW-n8D"/>
+                                        <constraint firstItem="LPm-pn-Loy" firstAttribute="top" secondItem="pK0-wm-T4i" secondAttribute="bottom" constant="8" id="S81-bY-bdj"/>
+                                        <constraint firstItem="pK0-wm-T4i" firstAttribute="leading" secondItem="F6S-zy-iX0" secondAttribute="leading" constant="20" id="eyx-Tv-l8W"/>
+                                        <constraint firstAttribute="trailing" secondItem="MEg-wT-zrS" secondAttribute="trailing" constant="20" id="vxG-q9-zRD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="secondaryLabel" destination="SQX-tr-Ehn" id="te4-es-eHA"/>
+                                    <outlet property="isOpenLabel" destination="MEg-wT-zrS" id="0oJ-ci-VXy"/>
+                                    <outlet property="nameLabel" destination="pK0-wm-T4i" id="riw-wG-XRf"/>
+                                    <outlet property="priceLabel" destination="LPm-pn-Loy" id="6mS-ZF-CaV"/>
+                                    <outlet property="ratingLabel" destination="SQX-tr-Ehn" id="N20-pK-T1O"/>
                                     <segue destination="wIg-f4-4CW" kind="show" identifier="ToRestaurant" id="MeM-aB-AB2"/>
                                 </connections>
                             </tableViewCell>

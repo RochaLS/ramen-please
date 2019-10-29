@@ -135,6 +135,7 @@ class RestaurantViewController: UIViewController {
             polyline.strokeWidth = 6.0
             polyline.spans = [GMSStyleSpan(color: #colorLiteral(red: 1, green: 0.2995484173, blue: 0.253780663, alpha: 1))]
             polyline.map = map
+        
         }
     }
     
@@ -156,3 +157,4 @@ class RestaurantViewController: UIViewController {
         }
     }
 }
+
