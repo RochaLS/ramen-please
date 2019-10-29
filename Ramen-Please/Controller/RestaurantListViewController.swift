@@ -40,10 +40,11 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.startUpdatingLocation()
         
-        
-        
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+            return .lightContent
+    }
     //MARK: - TableView Methods
     
     
@@ -70,13 +71,14 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
             if response.result.isSuccess {
                 print("Response sucessful!")
                 let restaurantJSON = JSON(response.result.value!)
-                print(restaurantJSON)
+//                print(restaurantJSON)
                 self.getDataFromJSON(json: restaurantJSON)
             } else {
                 print("Error \(String(describing: response.result.error))")
             }
         }
     }
+    
     
     // MARK: - Parsing JSON and Creating instances of the restaurant class
     
@@ -99,8 +101,8 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         }
         
         
-        //Initial array sorted by price from cheapest to more expensive
-        restaurants.sort { $0.priceLevel! < $1.priceLevel! }
+        //Initial array sorted by rating
+        restaurants.sort { $0.rating > $1.rating}
         
         
         self.tableView.reloadData()

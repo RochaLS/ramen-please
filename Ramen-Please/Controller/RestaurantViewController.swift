@@ -37,6 +37,7 @@ class RestaurantViewController: UIViewController {
         // Do any additional setup after loading the view.
         updateUIWithRestaurantInfo()
         mapConfig()
+        
        
         
         
@@ -148,7 +149,7 @@ class RestaurantViewController: UIViewController {
             if response.result.isSuccess {
                 print("Response sucessful!")
                 let routeJSON = JSON(response.result.value!)
-                print(url)
+//                print(url)
 //                print(routeJSON)
                 self.drawRoute(json: routeJSON)
             } else {
