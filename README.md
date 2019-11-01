@@ -7,3 +7,5 @@ Ramen App to help users to find Ramen restaurants close to their location.
   Thank you so much,
   
   RochaLS
+  
+  Icon Ramen image designed by [Monkik](https://www.flaticon.com/authors/monkik).
