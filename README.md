@@ -1,4 +1,4 @@
-# ramen-please
+# Ramen Please
 Ramen App to help users to find Ramen restaurants close to their location.
 
   Everyone loves Ramen, so I decided to create a small app that can help users find ramen restaurants around their location no matter where they are!
