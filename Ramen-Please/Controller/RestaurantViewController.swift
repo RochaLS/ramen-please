@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import Alamofire
 import SwiftyJSON
+import Firebase
 
 
 class RestaurantViewController: UIViewController {
@@ -27,6 +28,8 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var priceL4: UILabel!
     @IBOutlet weak var map: GMSMapView!
     
+   
+
     
     
     
@@ -156,6 +159,22 @@ class RestaurantViewController: UIViewController {
                 print("Error \(String(describing: response.result.error))")
             }
         }
+    }
+    
+    
+    @IBAction func favoriteButtonPressed(_ sender: UIBarButtonItem) {
+        let restaurantsDB = Database.database().reference().child("RestaurantInfo")
+        let restaurantDict = ["name": restaurant.name, "address": restaurant.address, "rating": restaurant.rating, "priceLevel": restaurant.priceLevel!, "lat": restaurant.lat!, "lng": restaurant.lng!] as [String : Any]
+        
+        restaurantsDB.childByAutoId().setValue(restaurantDict) {
+            (error, reference) in
+            if error != nil {
+                print(error!)
+            } else {
+                print("Data Saved!")
+            }
+        }
+        
     }
 }
 

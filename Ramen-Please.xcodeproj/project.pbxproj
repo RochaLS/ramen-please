@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16171462237CEC4500E93B77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16171461237CEC4500E93B77 /* Assets.xcassets */; };
+		162989CD2380F26F007F5D56 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 162989CC2380F26F007F5D56 /* GoogleService-Info.plist */; };
 		1631A9812356BDA00077C585 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A9802356BDA00077C585 /* RestaurantViewController.swift */; };
 		1631A983235AC9890077C585 /* DarkMap.json in Resources */ = {isa = PBXBuildFile; fileRef = 1631A982235AC9890077C585 /* DarkMap.json */; };
 		1631A985235ACB4C0077C585 /* NightMap.json in Resources */ = {isa = PBXBuildFile; fileRef = 1631A984235ACB4C0077C585 /* NightMap.json */; };
-		1631A987235ACE3B0077C585 /* Default.json in Resources */ = {isa = PBXBuildFile; fileRef = 1631A986235ACE3B0077C585 /* Default.json */; };
+		1631A987235ACE3B0077C585 /* default.json in Resources */ = {isa = PBXBuildFile; fileRef = 1631A986235ACE3B0077C585 /* default.json */; };
 		1631A989235ACE690077C585 /* Silver.json in Resources */ = {isa = PBXBuildFile; fileRef = 1631A988235ACE690077C585 /* Silver.json */; };
 		1631A98B235D40740077C585 /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A98A235D40740077C585 /* Security.swift */; };
-		1633BD47236CE89300527CF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1633BD46236CE89300527CF7 /* Assets.xcassets */; };
 		1640989923480FC700A3B45B /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1640989823480FC700A3B45B /* Restaurant.swift */; };
 		16789FB023611F860029017C /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16789FAF23611F860029017C /* RestaurantCell.swift */; };
+		16C8BCCC23811FC500988A49 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8BCCB23811FC500988A49 /* WelcomeViewController.swift */; };
+		16C8BCCE23811FD800988A49 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8BCCD23811FD800988A49 /* LoginViewController.swift */; };
+		16C8BCD023811FE500988A49 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8BCCF23811FE500988A49 /* SignUpViewController.swift */; };
 		16DD6DDB2346F3740087E4E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD6DDA2346F3740087E4E6 /* AppDelegate.swift */; };
 		16DD6DDD2346F3740087E4E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD6DDC2346F3740087E4E6 /* SceneDelegate.swift */; };
 		16DD6DDF2346F3740087E4E6 /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD6DDE2346F3740087E4E6 /* RestaurantListViewController.swift */; };
@@ -25,16 +29,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16171461237CEC4500E93B77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		162989CC2380F26F007F5D56 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1631A9802356BDA00077C585 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		1631A982235AC9890077C585 /* DarkMap.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DarkMap.json; sourceTree = "<group>"; };
 		1631A984235ACB4C0077C585 /* NightMap.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NightMap.json; sourceTree = "<group>"; };
-		1631A986235ACE3B0077C585 /* Default.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Default.json; path = ../../../../../../Desktop/Default.json; sourceTree = "<group>"; };
+		1631A986235ACE3B0077C585 /* default.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = default.json; path = "/Users/lucasrocha/code/RochaLS/projects-swift/Ramen-Please/Ramen-Please/Supporting Files/default.json"; sourceTree = "<absolute>"; };
 		1631A988235ACE690077C585 /* Silver.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Silver.json; sourceTree = "<group>"; };
 		1631A98A235D40740077C585 /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
-		1633BD46236CE89300527CF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../Desktop/Assets.xcassets; sourceTree = "<group>"; };
 		1640989823480FC700A3B45B /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		16789FAF23611F860029017C /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantCell.swift; path = "Ramen-Please/Controller/RestaurantCell.swift"; sourceTree = SOURCE_ROOT; };
-		16DD6DD72346F3740087E4E6 /* Ramen-Please.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ramen-Please.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16C8BCCB23811FC500988A49 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		16C8BCCD23811FD800988A49 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		16C8BCCF23811FE500988A49 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		16DD6DD72346F3740087E4E6 /* RamenPlease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RamenPlease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16DD6DDA2346F3740087E4E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16DD6DDC2346F3740087E4E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		16DD6DDE2346F3740087E4E6 /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +80,9 @@
 				16789FAF23611F860029017C /* RestaurantCell.swift */,
 				16DD6DDE2346F3740087E4E6 /* RestaurantListViewController.swift */,
 				1631A9802356BDA00077C585 /* RestaurantViewController.swift */,
+				16C8BCCB23811FC500988A49 /* WelcomeViewController.swift */,
+				16C8BCCD23811FD800988A49 /* LoginViewController.swift */,
+				16C8BCCF23811FE500988A49 /* SignUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -89,10 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				1631A98A235D40740077C585 /* Security.swift */,
-				1633BD46236CE89300527CF7 /* Assets.xcassets */,
 				1631A982235AC9890077C585 /* DarkMap.json */,
 				1631A984235ACB4C0077C585 /* NightMap.json */,
-				1631A986235ACE3B0077C585 /* Default.json */,
+				1631A986235ACE3B0077C585 /* default.json */,
 				1631A988235ACE690077C585 /* Silver.json */,
 			);
 			path = "Supporting Files";
@@ -102,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				16DD6DD92346F3740087E4E6 /* Ramen-Please */,
+				16171461237CEC4500E93B77 /* Assets.xcassets */,
 				16DD6DD82346F3740087E4E6 /* Products */,
 				1A3E5BF65E55360473203EAF /* Pods */,
 				D112F7AFCDAF4E6D2343BAD0 /* Frameworks */,
@@ -111,7 +122,7 @@
 		16DD6DD82346F3740087E4E6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				16DD6DD72346F3740087E4E6 /* Ramen-Please.app */,
+				16DD6DD72346F3740087E4E6 /* RamenPlease.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +137,7 @@
 				1631A98D235EAA3A0077C585 /* Controller */,
 				16533AD92352D90E000C5300 /* Supporting Files */,
 				16DD6DE82346F3760087E4E6 /* Info.plist */,
+				162989CC2380F26F007F5D56 /* GoogleService-Info.plist */,
 			);
 			path = "Ramen-Please";
 			sourceTree = "<group>";
@@ -167,7 +179,7 @@
 			);
 			name = "Ramen-Please";
 			productName = "Ramen-Please";
-			productReference = 16DD6DD72346F3740087E4E6 /* Ramen-Please.app */;
+			productReference = 16DD6DD72346F3740087E4E6 /* RamenPlease.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -210,11 +222,12 @@
 			files = (
 				1631A983235AC9890077C585 /* DarkMap.json in Resources */,
 				16DD6DE72346F3760087E4E6 /* LaunchScreen.storyboard in Resources */,
+				16171462237CEC4500E93B77 /* Assets.xcassets in Resources */,
 				1631A989235ACE690077C585 /* Silver.json in Resources */,
 				1631A985235ACB4C0077C585 /* NightMap.json in Resources */,
-				1631A987235ACE3B0077C585 /* Default.json in Resources */,
-				1633BD47236CE89300527CF7 /* Assets.xcassets in Resources */,
+				1631A987235ACE3B0077C585 /* default.json in Resources */,
 				16DD6DE22346F3740087E4E6 /* Main.storyboard in Resources */,
+				162989CD2380F26F007F5D56 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,8 +297,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16C8BCCE23811FD800988A49 /* LoginViewController.swift in Sources */,
 				1631A98B235D40740077C585 /* Security.swift in Sources */,
+				16C8BCCC23811FC500988A49 /* WelcomeViewController.swift in Sources */,
 				1640989923480FC700A3B45B /* Restaurant.swift in Sources */,
+				16C8BCD023811FE500988A49 /* SignUpViewController.swift in Sources */,
 				1631A9812356BDA00077C585 /* RestaurantViewController.swift in Sources */,
 				16DD6DDF2346F3740087E4E6 /* RestaurantListViewController.swift in Sources */,
 				16DD6DDB2346F3740087E4E6 /* AppDelegate.swift in Sources */,
@@ -443,7 +459,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lucasrocha.Ramen-Please";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RamenPlease;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -462,7 +478,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lucasrocha.Ramen-Please";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RamenPlease;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -10,5 +10,8 @@ target 'Ramen-Please' do
   pod 'GoogleMaps'
   pod 'Alamofire'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 
 end

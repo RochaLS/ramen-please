@@ -11,6 +11,7 @@ import GooglePlaces
 import Alamofire
 import SwiftyJSON
 import CoreLocation
+import FirebaseAuth
 
 class RestaurantListViewController: UITableViewController, CLLocationManagerDelegate {
     
@@ -150,6 +151,21 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
             destinationVC.restaurant = restaurants[indexPath.row]
             destinationVC.userLocation = location
         }
+    }
+    
+    //MARK: - Signing User Out
+    
+    
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            self.dismiss(animated: true, completion: nil)
+            print("User Signed out")
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+          
     }
     
     
