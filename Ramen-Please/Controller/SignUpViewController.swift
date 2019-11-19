@@ -24,7 +24,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        print("test")
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if error != nil {

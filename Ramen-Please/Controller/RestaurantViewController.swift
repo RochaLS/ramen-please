@@ -11,6 +11,7 @@ import GoogleMaps
 import Alamofire
 import SwiftyJSON
 import Firebase
+import FirebaseAuth
 
 
 class RestaurantViewController: UIViewController {
@@ -163,7 +164,7 @@ class RestaurantViewController: UIViewController {
     
     
     @IBAction func favoriteButtonPressed(_ sender: UIBarButtonItem) {
-        let restaurantsDB = Database.database().reference().child("RestaurantInfo")
+        let restaurantsDB = Database.database().reference().child("Users").child(Auth.auth().currentUser?.uid ?? "Not a user! This never should appear...").child("Restaurants")
         let restaurantDict = ["name": restaurant.name, "address": restaurant.address, "rating": restaurant.rating, "priceLevel": restaurant.priceLevel!, "lat": restaurant.lat!, "lng": restaurant.lng!] as [String : Any]
         
         restaurantsDB.childByAutoId().setValue(restaurantDict) {
