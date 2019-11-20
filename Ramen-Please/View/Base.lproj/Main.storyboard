@@ -105,7 +105,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="lyg-Cf-4Rf">
-                                <rect key="frame" x="20" y="80" width="374" height="125"/>
+                                <rect key="frame" x="20" y="40" width="374" height="125"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snf-ck-tom">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="54.5"/>
@@ -138,7 +138,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="lyg-Cf-4Rf" firstAttribute="top" secondItem="4CA-ab-oq0" secondAttribute="top" constant="80" id="2OI-gq-N70"/>
+                            <constraint firstItem="lyg-Cf-4Rf" firstAttribute="top" secondItem="4CA-ab-oq0" secondAttribute="top" constant="40" id="2OI-gq-N70"/>
                             <constraint firstItem="lyg-Cf-4Rf" firstAttribute="leading" secondItem="4CA-ab-oq0" secondAttribute="leading" constant="20" id="3z6-Xa-LQl"/>
                             <constraint firstItem="lyg-Cf-4Rf" firstAttribute="centerX" secondItem="wsS-CZ-yPv" secondAttribute="centerX" id="FFD-2s-Ksi"/>
                             <constraint firstItem="4CA-ab-oq0" firstAttribute="trailing" secondItem="lyg-Cf-4Rf" secondAttribute="trailing" constant="20" id="hbw-XN-ojT"/>
@@ -151,22 +151,47 @@
             </objects>
             <point key="canvasLocation" x="4742" y="1263"/>
         </scene>
-        <!--Favorites Table View Controller-->
+        <!--Favorite Ramen Places ❤️🍜-->
         <scene sceneID="1Rg-ii-Pqe">
             <objects>
                 <tableViewController id="19N-kM-6mQ" customClass="FavoritesTableViewController" customModule="RamenPlease" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="leE-eI-uDu">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="leE-eI-uDu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteRestaurantCell" id="c9e-I0-usg">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteRestaurantCell" id="c9e-I0-usg" customClass="FavoritesTableViewCell" customModule="RamenPlease" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c9e-I0-usg" id="Dbc-L8-geR">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NyB-kr-etg">
+                                            <rect key="frame" x="294" y="19" width="100" height="32"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <state key="normal" title="See Location"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRG-AQ-Wwn">
+                                            <rect key="frame" x="20" y="25" width="250" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="250" id="ki9-QI-lnD"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="pRG-AQ-Wwn" firstAttribute="centerY" secondItem="Dbc-L8-geR" secondAttribute="centerY" id="1ux-Zs-ep7"/>
+                                        <constraint firstItem="pRG-AQ-Wwn" firstAttribute="leading" secondItem="Dbc-L8-geR" secondAttribute="leadingMargin" id="8TL-iK-iZZ"/>
+                                        <constraint firstItem="NyB-kr-etg" firstAttribute="trailing" secondItem="Dbc-L8-geR" secondAttribute="trailingMargin" id="CzG-3D-CLL"/>
+                                        <constraint firstItem="NyB-kr-etg" firstAttribute="centerY" secondItem="Dbc-L8-geR" secondAttribute="centerY" id="wlQ-sC-N7V"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="pRG-AQ-Wwn" id="CMY-FI-92q"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -174,7 +199,7 @@
                             <outlet property="delegate" destination="19N-kM-6mQ" id="03m-0Y-8YC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="rcl-tH-yow"/>
+                    <navigationItem key="navigationItem" title="Favorite Ramen Places ❤️🍜" id="rcl-tH-yow"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WmG-Rx-f0O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

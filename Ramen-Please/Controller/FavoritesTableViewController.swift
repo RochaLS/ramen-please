@@ -37,11 +37,11 @@ class FavoritesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteRestaurantCell", for: indexPath)
-        
-        cell.textLabel?.text = favoriteRestaurants[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteRestaurantCell", for: indexPath) as! FavoritesTableViewCell
 
         // Configure the cell...
+        
+        cell.setLabel(restaurantName: favoriteRestaurants[indexPath.row])
 
         return cell
     }
