@@ -16,8 +16,9 @@ class Restaurant {
     var isOpen = false
     var lat: Double?
     var lng: Double?
+    let id: String
     
-    init(name: String, address: String, rating: Float, priceLevel: Int?, isOpen: Bool, lat: Double?, lng: Double?) {
+    init(name: String, address: String, rating: Float, priceLevel: Int?, isOpen: Bool, lat: Double?, lng: Double?, id: String) {
         self.name = name
         self.address = address
         self.rating = rating
@@ -25,5 +26,6 @@ class Restaurant {
         self.isOpen = isOpen
         self.lat = lat
         self.lng = lng
+        self.id = id
     }
 }

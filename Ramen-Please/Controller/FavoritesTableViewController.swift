@@ -47,7 +47,6 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     func gettingDataFromDB() {
-        print("called")
         var data = [String:Any]()
         ref.child("Users").child(userID!).child("Restaurants").observe(.value, with: { (snapshot) in
             

@@ -397,6 +397,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="favoriteButton" destination="Hor-bY-8Lf" id="zvb-E3-mAP"/>
                         <outlet property="map" destination="tBs-P1-Hbs" id="QVD-ci-RC3"/>
                         <outlet property="openLabel" destination="CMd-Mw-jhK" id="5tr-uG-KPQ"/>
                         <outlet property="priceL1" destination="SSg-RM-sMb" id="W3o-EO-OPr"/>

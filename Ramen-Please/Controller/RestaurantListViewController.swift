@@ -72,7 +72,7 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
             if response.result.isSuccess {
                 print("Response sucessful!")
                 let restaurantJSON = JSON(response.result.value!)
-//                print(restaurantJSON)
+                print(restaurantJSON)
                 self.getDataFromJSON(json: restaurantJSON)
             } else {
                 print("Error \(String(describing: response.result.error))")
@@ -93,8 +93,9 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
             let restaurantPriceLevel = subJSON["price_level"].int ?? 0
             let restaurantLat = subJSON["geometry"]["location"]["lat"].double ?? 0
             let restaurantLng = subJSON["geometry"]["location"]["lng"].double ?? 0
+            let restaurantID = subJSON["place_id"].string ?? ""
             
-            let newRestaurant = Restaurant(name: restaurantName, address: restaurantAddress, rating: restaurantRating, priceLevel: restaurantPriceLevel, isOpen: restaurantIsOpen, lat: restaurantLat, lng: restaurantLng)
+            let newRestaurant = Restaurant(name: restaurantName, address: restaurantAddress, rating: restaurantRating, priceLevel: restaurantPriceLevel, isOpen: restaurantIsOpen, lat: restaurantLat, lng: restaurantLng, id: restaurantID)
             
             if newRestaurant.priceLevel != 0 {
                 restaurants.append(newRestaurant)

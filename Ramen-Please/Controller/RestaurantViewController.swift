@@ -28,21 +28,22 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var priceL3: UILabel!
     @IBOutlet weak var priceL4: UILabel!
     @IBOutlet weak var map: GMSMapView!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
-   
-
+    
+    
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         updateUIWithRestaurantInfo()
         mapConfig()
         
-       
+        
         
         
     }
@@ -83,7 +84,7 @@ class RestaurantViewController: UIViewController {
             priceL2.textColor = #colorLiteral(red: 0, green: 0.7411764706, blue: 0.337254902, alpha: 1)
             priceL3.textColor = #colorLiteral(red: 0, green: 0.7411764706, blue: 0.337254902, alpha: 1)
             priceL4.textColor = #colorLiteral(red: 0, green: 0.7411764706, blue: 0.337254902, alpha: 1)
-        
+            
         default:
             print("Colors applied")
         }
@@ -106,15 +107,15 @@ class RestaurantViewController: UIViewController {
         
         
         do {
-          // Set the map style by passing the URL of the local file.
+            // Set the map style by passing the URL of the local file.
             if let styleURL = Bundle.main.url(forResource: traitCollection.userInterfaceStyle == .dark ? "NightMap" : "Default", withExtension: "json") {
                 map.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
             } else {
                 NSLog("Unable to find style.json")
             }
-            } catch {
-                NSLog("One or more of the map styles failed to load. \(error)")
-            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
         
         // Inserting markers into the map
         let position = CLLocationCoordinate2D(latitude: restaurant.lat!, longitude: restaurant.lng!)
@@ -140,11 +141,11 @@ class RestaurantViewController: UIViewController {
             polyline.strokeWidth = 6.0
             polyline.spans = [GMSStyleSpan(color: #colorLiteral(red: 1, green: 0.2995484173, blue: 0.253780663, alpha: 1))]
             polyline.map = map
-        
+            
         }
     }
     
-// MARK: - Networking
+    // MARK: - Networking
     
     func getRoute() {
         let url = "https://maps.googleapis.com/maps/api/directions/json?"
@@ -153,8 +154,8 @@ class RestaurantViewController: UIViewController {
             if response.result.isSuccess {
                 print("Response sucessful!")
                 let routeJSON = JSON(response.result.value!)
-//                print(url)
-//                print(routeJSON)
+                //                print(url)
+                //                print(routeJSON)
                 self.drawRoute(json: routeJSON)
             } else {
                 print("Error \(String(describing: response.result.error))")
@@ -164,10 +165,13 @@ class RestaurantViewController: UIViewController {
     
     
     @IBAction func favoriteButtonPressed(_ sender: UIBarButtonItem) {
-        let restaurantsDB = Database.database().reference().child("Users").child(Auth.auth().currentUser?.uid ?? "Not a user! This never should appear...").child("Restaurants")
-        let restaurantDict = ["name": restaurant.name, "address": restaurant.address, "rating": restaurant.rating, "priceLevel": restaurant.priceLevel!, "lat": restaurant.lat!, "lng": restaurant.lng!] as [String : Any]
+        let restaurantsDB = Database.database().reference().child("Users").child((Auth.auth().currentUser?.uid)!).child("Restaurants").child(restaurant.id)
+        let restaurantDict = ["name": restaurant.name, "address": restaurant.address, "rating": restaurant.rating, "priceLevel": restaurant.priceLevel!, "lat": restaurant.lat!, "lng": restaurant.lng!, "id": restaurant.id] as [String : Any]
         
-        restaurantsDB.childByAutoId().setValue(restaurantDict) {
+        // Writing data in Firebase RealTimeDB using ID got from google places api to divide restaurants in DB.
+        
+        
+        restaurantsDB.setValue(restaurantDict) {
             (error, reference) in
             if error != nil {
                 print(error!)
