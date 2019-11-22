@@ -31,7 +31,7 @@ class RestaurantCell: UITableViewCell {
     func setLabels(restaurant: Restaurant) {
         nameLabel.text = restaurant.name
         ratingLabel.text = String(restaurant.rating)
-        ratingLabel.textColor = #colorLiteral(red: 0.9647058824, green: 0.8274509804, blue: 0.3960784314, alpha: 1)
+        ratingLabel.textColor = #colorLiteral(red: 0.9647058824, green: 0.7511185746, blue: 0, alpha: 1)
         priceLabel.text = String(repeating: "$", count: restaurant.priceLevel!)
         priceLabel.textColor = #colorLiteral(red: 0, green: 0.7411764706, blue: 0.337254902, alpha: 1)
         isOpenLabel.text = restaurant.isOpen ? "Open" : "Closed"
