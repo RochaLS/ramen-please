@@ -72,7 +72,6 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
             if response.result.isSuccess {
                 print("Response sucessful!")
                 let restaurantJSON = JSON(response.result.value!)
-                print(restaurantJSON)
                 self.getDataFromJSON(json: restaurantJSON)
             } else {
                 print("Error \(String(describing: response.result.error))")

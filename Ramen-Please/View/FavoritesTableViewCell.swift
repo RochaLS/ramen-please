@@ -22,8 +22,8 @@ class FavoritesTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var nameLabel: UILabel!
     
-    func setLabel(restaurantName: String) {
-        nameLabel.text = restaurantName
+    func setLabel(restaurant: Restaurant) {
+        nameLabel.text = restaurant.name
     }
 
 }

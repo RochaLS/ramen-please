@@ -121,8 +121,7 @@ class RestaurantViewController: UIViewController {
         let position = CLLocationCoordinate2D(latitude: restaurant.lat!, longitude: restaurant.lng!)
         let marker = GMSMarker(position: position)
         
-        marker.title = restaurant.name
-        marker.snippet = restaurant.address
+        marker.snippet = restaurant.name
         marker.map = map
         
         //Updating camera with the previous bounds

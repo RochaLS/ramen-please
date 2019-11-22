@@ -17,6 +17,7 @@
 		1631A98B235D40740077C585 /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A98A235D40740077C585 /* Security.swift */; };
 		1640989923480FC700A3B45B /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1640989823480FC700A3B45B /* Restaurant.swift */; };
 		16789FB023611F860029017C /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16789FAF23611F860029017C /* RestaurantCell.swift */; };
+		168EC5AD238791C0004DCFB9 /* FavoriteRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168EC5AC238791C0004DCFB9 /* FavoriteRestaurantViewController.swift */; };
 		16AC6C7923851A32003379BC /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AC6C7823851A32003379BC /* FavoritesTableViewCell.swift */; };
 		16C8BCCC23811FC500988A49 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8BCCB23811FC500988A49 /* WelcomeViewController.swift */; };
 		16C8BCCE23811FD800988A49 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C8BCCD23811FD800988A49 /* LoginViewController.swift */; };
@@ -42,6 +43,7 @@
 		1631A98A235D40740077C585 /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
 		1640989823480FC700A3B45B /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		16789FAF23611F860029017C /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantCell.swift; path = "Ramen-Please/Controller/RestaurantCell.swift"; sourceTree = SOURCE_ROOT; };
+		168EC5AC238791C0004DCFB9 /* FavoriteRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRestaurantViewController.swift; sourceTree = "<group>"; };
 		16AC6C7823851A32003379BC /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoritesTableViewCell.swift; path = "Ramen-Please/View/FavoritesTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		16C8BCCB23811FC500988A49 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		16C8BCCD23811FD800988A49 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				16C8BCCD23811FD800988A49 /* LoginViewController.swift */,
 				16C8BCCF23811FE500988A49 /* SignUpViewController.swift */,
 				16D786FD2383A6F20000CFBF /* FavoritesTableViewController.swift */,
+				168EC5AC238791C0004DCFB9 /* FavoriteRestaurantViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				16DD6DDB2346F3740087E4E6 /* AppDelegate.swift in Sources */,
 				16DD6DDD2346F3740087E4E6 /* SceneDelegate.swift in Sources */,
 				16789FB023611F860029017C /* RestaurantCell.swift in Sources */,
+				168EC5AD238791C0004DCFB9 /* FavoriteRestaurantViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

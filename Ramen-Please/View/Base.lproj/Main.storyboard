@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Ramen places near you! 🍜 -->
+        <!--Ramen places near you!  -->
         <scene sceneID="yYh-VS-yA9">
             <objects>
                 <tableViewController id="vlG-sW-ubh" customClass="RestaurantListViewController" customModule="RamenPlease" customModuleProvider="target" sceneMemberID="viewController">
@@ -76,8 +76,8 @@
                             <outlet property="delegate" destination="vlG-sW-ubh" id="Rtn-p1-Qb5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Ramen places near you! 🍜 " id="O6O-a9-VTT">
-                        <barButtonItem key="leftBarButtonItem" title="Profile" id="Ny1-Z9-QsL">
+                    <navigationItem key="navigationItem" title="Ramen places near you!  " id="O6O-a9-VTT">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="Ny1-Z9-QsL">
                             <connections>
                                 <segue destination="Sbh-KU-gVR" kind="show" id="gaT-AO-ma8"/>
                             </connections>
@@ -96,7 +96,7 @@
             </objects>
             <point key="canvasLocation" x="3587" y="913"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Menu-->
         <scene sceneID="iMz-tA-oGN">
             <objects>
                 <viewController id="Sbh-KU-gVR" customClass="ProfileViewController" customModule="RamenPlease" customModuleProvider="target" sceneMemberID="viewController">
@@ -145,13 +145,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4CA-ab-oq0"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Kjt-8L-vIv"/>
+                    <navigationItem key="navigationItem" title="Menu" id="Kjt-8L-vIv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2n-u0-Y8l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4742" y="1263"/>
         </scene>
-        <!--Favorite Ramen Places ❤️🍜-->
+        <!--Favorite Ramen Places -->
         <scene sceneID="1Rg-ii-Pqe">
             <objects>
                 <tableViewController id="19N-kM-6mQ" customClass="FavoritesTableViewController" customModule="RamenPlease" customModuleProvider="target" sceneMemberID="viewController">
@@ -167,11 +167,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NyB-kr-etg">
-                                            <rect key="frame" x="294" y="19" width="100" height="32"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                            <state key="normal" title="See Location"/>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRG-AQ-Wwn">
                                             <rect key="frame" x="20" y="25" width="250" height="20"/>
                                             <constraints>
@@ -185,12 +180,11 @@
                                     <constraints>
                                         <constraint firstItem="pRG-AQ-Wwn" firstAttribute="centerY" secondItem="Dbc-L8-geR" secondAttribute="centerY" id="1ux-Zs-ep7"/>
                                         <constraint firstItem="pRG-AQ-Wwn" firstAttribute="leading" secondItem="Dbc-L8-geR" secondAttribute="leadingMargin" id="8TL-iK-iZZ"/>
-                                        <constraint firstItem="NyB-kr-etg" firstAttribute="trailing" secondItem="Dbc-L8-geR" secondAttribute="trailingMargin" id="CzG-3D-CLL"/>
-                                        <constraint firstItem="NyB-kr-etg" firstAttribute="centerY" secondItem="Dbc-L8-geR" secondAttribute="centerY" id="wlQ-sC-N7V"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="pRG-AQ-Wwn" id="CMY-FI-92q"/>
+                                    <segue destination="ZQe-1y-KIU" kind="show" identifier="favToRestaurant" id="8HN-9M-98z"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -199,11 +193,38 @@
                             <outlet property="delegate" destination="19N-kM-6mQ" id="03m-0Y-8YC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorite Ramen Places ❤️🍜" id="rcl-tH-yow"/>
+                    <navigationItem key="navigationItem" title="Favorite Ramen Places " id="rcl-tH-yow"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WmG-Rx-f0O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6003" y="1263"/>
+        </scene>
+        <!--FavoriteRestaurantViewController-->
+        <scene sceneID="FBr-qG-wGx">
+            <objects>
+                <viewController id="ZQe-1y-KIU" userLabel="FavoriteRestaurantViewController" customClass="FavoriteRestaurantViewController" customModule="RamenPlease" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2qp-oK-L22">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AJI-z1-nZw">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AJI-z1-nZw" firstAttribute="leading" secondItem="l6B-WR-oLX" secondAttribute="leading" id="QBi-T3-Iit"/>
+                            <constraint firstItem="AJI-z1-nZw" firstAttribute="top" secondItem="l6B-WR-oLX" secondAttribute="top" id="S1q-re-5kR"/>
+                            <constraint firstItem="l6B-WR-oLX" firstAttribute="trailing" secondItem="AJI-z1-nZw" secondAttribute="trailing" id="VRf-ju-acN"/>
+                            <constraint firstItem="l6B-WR-oLX" firstAttribute="bottom" secondItem="AJI-z1-nZw" secondAttribute="bottom" constant="-34" id="wUe-4J-KqY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="l6B-WR-oLX"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Restaurant Location  " id="Qzw-wa-3PW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ao-Xy-jNb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6969.5652173913049" y="1262.9464285714284"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="CGh-8y-k4t">
@@ -389,7 +410,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wDK-7L-ylD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Place Information 🍜" id="KVP-iq-giW">
+                    <navigationItem key="navigationItem" title="Place Information " id="KVP-iq-giW">
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="Hor-bY-8Lf">
                             <connections>
                                 <action selector="favoriteButtonPressed:" destination="wIg-f4-4CW" id="3vo-f3-oWY"/>
@@ -604,6 +625,6 @@
         <image name="WelcomePageLogo" width="341.33334350585938" height="341.33334350585938"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kkm-oK-AkI"/>
+        <segue reference="TVt-dU-vqd"/>
     </inferredMetricsTieBreakers>
 </document>
