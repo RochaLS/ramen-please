@@ -193,7 +193,13 @@
                             <outlet property="delegate" destination="19N-kM-6mQ" id="03m-0Y-8YC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorite Ramen Places " id="rcl-tH-yow"/>
+                    <navigationItem key="navigationItem" title="Favorite Ramen Places " id="rcl-tH-yow">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.up.arrow.down" catalog="system" id="f53-ea-1EV">
+                            <connections>
+                                <action selector="editPressed:" destination="19N-kM-6mQ" id="FAT-Ez-qwk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WmG-Rx-f0O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -623,6 +629,7 @@
     </scenes>
     <resources>
         <image name="WelcomePageLogo" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="arrow.up.arrow.down" catalog="system" width="64" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="TVt-dU-vqd"/>

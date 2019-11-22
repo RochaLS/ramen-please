@@ -46,6 +46,28 @@ class FavoritesTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let itemToMove = favoriteRestaurants[sourceIndexPath.row]
+        favoriteRestaurants.remove(at: sourceIndexPath.row)
+        favoriteRestaurants.insert(itemToMove, at: destinationIndexPath.row)
+    }
+    
+    
+    
+    @IBAction func editPressed(_ sender: UIBarButtonItem) {
+        if tableView.isEditing {
+            tableView.setEditing(false, animated: true)
+        } else {
+            tableView.setEditing(true, animated: true)
+        }
+    }
+    
+    
+    
     func gettingDataFromDB() {
         var data = [String:Any]()
         ref.child("Users").child(userID!).child("Restaurants").observe(.value, with: { (snapshot) in
