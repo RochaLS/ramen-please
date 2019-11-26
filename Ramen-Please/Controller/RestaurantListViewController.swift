@@ -41,7 +41,11 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.startUpdatingLocation()
         
+        
+        assignRefreshControl()
+        
     }
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -64,6 +68,11 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         
         return cell
     }
+    
+    
+    
+    
+    
     
     //MARK: - Networking
     
@@ -140,6 +149,33 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         // Notify the user of any errors.
         print("Error updating location! \(error)")
     }
+    
+    //MARK: - Refresh Data
+    
+    func assignRefreshControl() {
+        let refreshControl = UIRefreshControl()
+           refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+
+           if #available(iOS 10.0, *) {
+               tableView.refreshControl = refreshControl
+           } else {
+               tableView.backgroundView = refreshControl
+           }
+    }
+    
+    // Refreshing table view with new data
+
+    @objc func refresh(_ refreshControl: UIRefreshControl) {
+        restaurants.removeAll() // Cleaning up restaurants array to avoid duplciate data
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.startUpdatingLocation() // Checking for newest user location
+        
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
     
     //MARK: - Segue
     
