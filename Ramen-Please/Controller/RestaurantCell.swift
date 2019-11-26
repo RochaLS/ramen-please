@@ -38,7 +38,7 @@ class RestaurantCell: UITableViewCell {
         isOpenLabel.textColor = restaurant.isOpen ? #colorLiteral(red: 0, green: 0.7411764706, blue: 0.337254902, alpha: 1) : #colorLiteral(red: 0.9896159768, green: 0.1559592187, blue: 0.1507968903, alpha: 1)
         
         
-        
+
     }
 
 }

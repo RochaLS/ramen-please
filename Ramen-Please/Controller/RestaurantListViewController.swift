@@ -68,7 +68,7 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
         
         if !restaurants.isEmpty {
-            hud.dismiss(animated: true) // Dismiss loading hud when array is populated.
+            hud.dismiss(afterDelay: 1.0, animated: true) // Dismiss loading hud when array is populated.
         }
         
         cell.setLabels(restaurant: restaurant)
@@ -183,7 +183,7 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         locationManager.startUpdatingLocation() // Checking for newest user location
         
         self.tableView.reloadData()
-        hud.dismiss(animated: true)
+        hud.dismiss(afterDelay: 1.0, animated: true)
         refreshControl.endRefreshing()
     }
     

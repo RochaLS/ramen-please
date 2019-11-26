@@ -11,6 +11,7 @@ import FirebaseAuth
 import Firebase
 import SwiftyJSON
 import SwipeCellKit
+import JGProgressHUD
 
 class FavoritesTableViewController: UITableViewController, SwipeTableViewCellDelegate {
     
@@ -24,13 +25,15 @@ class FavoritesTableViewController: UITableViewController, SwipeTableViewCellDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let hud = JGProgressHUD(style: .dark)
+        hud.show(in: self.view, animated: true)
+        
         gettingDataFromDB()
         
         
         
         print(ref)
-        
-        
+        hud.dismiss(afterDelay: 1.0, animated: true)
     }
     
     
