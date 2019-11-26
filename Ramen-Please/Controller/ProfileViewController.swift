@@ -11,10 +11,11 @@ import FirebaseAuth
 import Firebase
 
 class ProfileViewController: UIViewController {
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -24,15 +25,16 @@ class ProfileViewController: UIViewController {
             try firebaseAuth.signOut()
             
             self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
-
+            
             print("User Signed out")
         } catch let signOutError as NSError {
-          print ("Error signing out: %@", signOutError)
+            print ("Error signing out: %@", signOutError)
         }
     }
     
     
     @IBAction func goToFavoritesPressed(_ sender: UIButton) {
     }
-
+    
+    
 }

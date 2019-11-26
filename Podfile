@@ -13,5 +13,6 @@ target 'Ramen-Please' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'SwipeCellKit'
 
 end

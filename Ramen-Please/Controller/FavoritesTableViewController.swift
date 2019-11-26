@@ -10,8 +10,10 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import SwiftyJSON
+import SwipeCellKit
 
-class FavoritesTableViewController: UITableViewController {
+class FavoritesTableViewController: UITableViewController, SwipeTableViewCellDelegate {
+    
     
     var favoriteRestaurants = [Restaurant]()
     
@@ -21,17 +23,22 @@ class FavoritesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         gettingDataFromDB()
+        
+        
+        
+        print(ref)
         
         
     }
     
     
     
-    // MARK: - Table view data source
+    // MARK: - Table view data source and Delegate
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return favoriteRestaurants.count
     }
     
@@ -40,6 +47,9 @@ class FavoritesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteRestaurantCell", for: indexPath) as! FavoritesTableViewCell
         
         // Configure the cell...
+        
+        cell.delegate = self
+        
         
         cell.setLabel(restaurant: favoriteRestaurants[indexPath.row])
         
@@ -56,6 +66,53 @@ class FavoritesTableViewController: UITableViewController {
         favoriteRestaurants.insert(itemToMove, at: destinationIndexPath.row)
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        guard orientation == .right else { return nil }
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            
+            self.deleteCell(at: indexPath)
+            
+            
+        }
+        
+        deleteAction.image = UIImage(named: "delete")
+        
+        
+        
+        return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        
+        return options
+    }
+    
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        
+//        if editingStyle == .delete {
+//            deleteCell(at: indexPath)
+//        }
+//    }
+    
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    func deleteCell(at indexPath: IndexPath) {
+        let restaurantRef = ref.child("Users").child(userID!).child("Restaurants").child(favoriteRestaurants[indexPath.row].id)
+        favoriteRestaurants.remove(at: indexPath.row)
+        restaurantRef.removeValue()
+        print("Item deleted")
+        // No need to reload table view here, already reloading when observing
+    }
+    
     
     
     @IBAction func editPressed(_ sender: UIBarButtonItem) {
@@ -64,15 +121,20 @@ class FavoritesTableViewController: UITableViewController {
         } else {
             tableView.setEditing(true, animated: true)
         }
+        
     }
     
-    
+    //MARK: - Getting data from DB
     
     func gettingDataFromDB() {
         var data = [String:Any]()
         ref.child("Users").child(userID!).child("Restaurants").observe(.value, with: { (snapshot) in
             
             if let restaurantData = snapshot.value as? NSDictionary {
+                
+                // Remove all items before observing again to avoid duplicated Items on the table view.
+                self.favoriteRestaurants.removeAll()
+                
                 for (_, value) in restaurantData{
                     data = value as! [String : Any]
                     let restaurantName = data["name"] as! String
@@ -85,8 +147,8 @@ class FavoritesTableViewController: UITableViewController {
                     
                     let favoriteRestaurant = Restaurant(name: restaurantName, address: restaurantAddress, rating: restaurantRating, priceLevel: restaurantPriceLevel, isOpen: false, lat: restaurantLat, lng: restaurantLng, id: restaurantID)
                     self.favoriteRestaurants.append(favoriteRestaurant)
-                    self.tableView.reloadData()
                 }
+                self.tableView.reloadData() // reloading here
             }
         })
     }
@@ -104,7 +166,7 @@ class FavoritesTableViewController: UITableViewController {
             }
         }
     }
-
+    
     
     
 }

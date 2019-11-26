@@ -44,7 +44,7 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-            return .lightContent
+        return .lightContent
     }
     //MARK: - TableView Methods
     
@@ -149,15 +149,14 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
             let destinationVC = segue.destination as! RestaurantViewController
             
             if let indexPath = tableView.indexPathForSelectedRow {
-                       destinationVC.restaurant = restaurants[indexPath.row]
-                       destinationVC.userLocation = location
+                destinationVC.restaurant = restaurants[indexPath.row]
+                destinationVC.userLocation = location
             }
         }
+        
     }
     
-//    @IBAction func profileButtonPressed(_ sender: UIBarButtonItem) {
-//        performSegue(withIdentifier: "ListToProfile", sender: self)
-//    }
+    
     
 }
 
@@ -224,9 +223,9 @@ extension RestaurantListViewController: UIPickerViewDelegate, UIPickerViewDataSo
 }
 
 
-    
-    
-   
+
+
+
 
 
 
