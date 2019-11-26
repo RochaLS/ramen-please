@@ -183,8 +183,8 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         locationManager.startUpdatingLocation() // Checking for newest user location
         
         self.tableView.reloadData()
-        hud.dismiss(afterDelay: 1.0, animated: true)
         refreshControl.endRefreshing()
+           hud.dismiss(animated: true)
     }
     
     
