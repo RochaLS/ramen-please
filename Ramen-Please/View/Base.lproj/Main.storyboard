@@ -29,11 +29,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pK0-wm-T4i">
-                                            <rect key="frame" x="20" y="19" width="280" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="280" id="eAJ-b5-p6U"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Restaurant Name" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pK0-wm-T4i">
+                                            <rect key="frame" x="20" y="19" width="132.5" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -59,7 +56,9 @@
                                         <constraint firstItem="SQX-tr-Ehn" firstAttribute="leading" secondItem="F6S-zy-iX0" secondAttribute="leading" constant="30" id="PkE-pW-n8D"/>
                                         <constraint firstItem="LPm-pn-Loy" firstAttribute="top" secondItem="pK0-wm-T4i" secondAttribute="bottom" constant="8" id="S81-bY-bdj"/>
                                         <constraint firstItem="pK0-wm-T4i" firstAttribute="leading" secondItem="F6S-zy-iX0" secondAttribute="leading" constant="20" id="eyx-Tv-l8W"/>
+                                        <constraint firstItem="MEg-wT-zrS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LPm-pn-Loy" secondAttribute="trailing" constant="8" symbolic="YES" id="nht-PH-p2F"/>
                                         <constraint firstAttribute="trailing" secondItem="MEg-wT-zrS" secondAttribute="trailing" constant="20" id="vxG-q9-zRD"/>
+                                        <constraint firstItem="MEg-wT-zrS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pK0-wm-T4i" secondAttribute="trailing" constant="20" id="zRe-dr-u23"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -293,7 +292,7 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="KR3-Re-Sly" firstAttribute="width" secondItem="6bZ-eZ-Fa9" secondAttribute="width" id="w08-G4-n81"/>
+                                    <constraint firstItem="KR3-Re-Sly" firstAttribute="width" secondItem="6bZ-eZ-Fa9" secondAttribute="width" id="w08-G4-n81" customClass="KeyboardLayoutConstraint" customModule="Spring"/>
                                 </constraints>
                             </stackView>
                         </subviews>

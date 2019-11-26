@@ -14,5 +14,7 @@ target 'Ramen-Please' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'SwipeCellKit'
+  pod 'IQKeyboardManagerSwift'
+
 
 end
