@@ -49,8 +49,6 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         
         assignRefreshControl()
         
-        hud.dismiss(animated: true)
-        
     }
     
     
@@ -67,8 +65,11 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let restaurant = restaurants[indexPath.row]
         
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
+        
+        if !restaurants.isEmpty {
+            hud.dismiss(animated: true) // Dismiss loading hud when array is populated.
+        }
         
         cell.setLabels(restaurant: restaurant)
         
