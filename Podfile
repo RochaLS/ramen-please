@@ -15,6 +15,7 @@ target 'Ramen-Please' do
   pod 'Firebase/Auth'
   pod 'SwipeCellKit'
   pod 'IQKeyboardManagerSwift'
+  pod 'JGProgressHUD'
 
 
 end

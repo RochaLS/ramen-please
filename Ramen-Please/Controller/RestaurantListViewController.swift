@@ -12,6 +12,7 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 import FirebaseAuth
+import JGProgressHUD
 
 class RestaurantListViewController: UITableViewController, CLLocationManagerDelegate {
     
@@ -19,11 +20,15 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
     let locationManager = CLLocationManager()
     var location: CLLocation!
     let API_KEY = Security.API_KEY
+    let hud = JGProgressHUD(style: .dark)
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view, animated: true)
         
         
         
@@ -43,6 +48,8 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         
         
         assignRefreshControl()
+        
+        hud.dismiss(animated: true)
         
     }
     
@@ -168,11 +175,14 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
     @objc func refresh(_ refreshControl: UIRefreshControl) {
         restaurants.removeAll() // Cleaning up restaurants array to avoid duplciate data
         
+        hud.show(in: self.view, animated: true)
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.startUpdatingLocation() // Checking for newest user location
         
         self.tableView.reloadData()
+        hud.dismiss(animated: true)
         refreshControl.endRefreshing()
     }
     
