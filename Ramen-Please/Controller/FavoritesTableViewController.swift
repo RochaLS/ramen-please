@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
-import SwiftyJSON
+//import SwiftyJSON
 import SwipeCellKit
 import JGProgressHUD
 
@@ -169,7 +169,5 @@ class FavoritesTableViewController: UITableViewController, SwipeTableViewCellDel
             }
         }
     }
-    
-    
     
 }

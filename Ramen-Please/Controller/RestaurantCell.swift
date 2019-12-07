@@ -9,8 +9,8 @@
 import UIKit
 
 class RestaurantCell: UITableViewCell {
-
-
+    
+    
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -21,10 +21,11 @@ class RestaurantCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -36,9 +37,6 @@ class RestaurantCell: UITableViewCell {
         priceLabel.textColor = #colorLiteral(red: 0, green: 0.7411764706, blue: 0.337254902, alpha: 1)
         isOpenLabel.text = restaurant.isOpen ? "Open" : "Closed"
         isOpenLabel.textColor = restaurant.isOpen ? #colorLiteral(red: 0, green: 0.7411764706, blue: 0.337254902, alpha: 1) : #colorLiteral(red: 0.9896159768, green: 0.1559592187, blue: 0.1507968903, alpha: 1)
-        
-        
-
     }
-
+    
 }

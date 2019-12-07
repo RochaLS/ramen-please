@@ -10,7 +10,7 @@
         <!--Ramen places near you!  -->
         <scene sceneID="yYh-VS-yA9">
             <objects>
-                <tableViewController id="vlG-sW-ubh" customClass="RestaurantListViewController" customModule="RamenPlease" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RestaurantListVC" id="vlG-sW-ubh" customClass="RestaurantListViewController" customModule="RamenPlease" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0ZK-xN-QcE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,7 +234,7 @@
         <!--LoginViewController-->
         <scene sceneID="CGh-8y-k4t">
             <objects>
-                <viewController id="xOd-C8-LpT" userLabel="LoginViewController" customClass="LoginViewController" customModule="RamenPlease" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="xOd-C8-LpT" userLabel="LoginViewController" customClass="LoginViewController" customModule="RamenPlease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nkt-Lj-NcQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -517,7 +517,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Zey-e1-tt3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dV6-L7-3Xu" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootNav" automaticallyAdjustsScrollViewInsets="NO" id="dV6-L7-3Xu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="jW5-W8-ZON"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="BG7-vh-ZI8">
@@ -631,6 +631,6 @@
         <image name="arrow.up.arrow.down" catalog="system" width="64" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TVt-dU-vqd"/>
+        <segue reference="Kkm-oK-AkI"/>
     </inferredMetricsTieBreakers>
 </document>

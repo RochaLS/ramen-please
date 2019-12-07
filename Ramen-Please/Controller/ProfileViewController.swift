@@ -32,8 +32,8 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    
     @IBAction func goToFavoritesPressed(_ sender: UIButton) {
+        
     }
     
     

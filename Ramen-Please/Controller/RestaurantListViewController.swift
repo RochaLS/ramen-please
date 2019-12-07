@@ -30,7 +30,8 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         hud.textLabel.text = "Loading"
         hud.show(in: self.view, animated: true)
         
-        
+       
+    
         
         // Row styling
         
@@ -46,6 +47,7 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.startUpdatingLocation()
         
+//         tableView.register(RestaurantCell.self, forCellReuseIdentifier: "RestaurantCell")
         
         assignRefreshControl()
         
@@ -76,10 +78,6 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         
         return cell
     }
-    
-    
-    
-    
     
     
     //MARK: - Networking
