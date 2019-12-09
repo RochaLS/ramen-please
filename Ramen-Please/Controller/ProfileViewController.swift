@@ -19,16 +19,30 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func logoutPressed(_ sender: UIButton) {
+    
+    @IBAction func logout(_ sender: Any) {
         let firebaseAuth = Auth.auth()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "RootNav") as! UINavigationController
+        
         do {
             try firebaseAuth.signOut()
-            
-            self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
-            
+            // Changing root back again to he first nav of the app
+            self.view.window?.rootViewController = controller
+            navigationController?.popToRootViewController(animated: true)
+//            self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
             print("User Signed out")
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
+        }
+    }
+    
+    func dismissViewControllers() {
+
+        guard let vc = self.presentingViewController else { return }
+
+        while (vc.presentingViewController != nil) {
+            vc.dismiss(animated: true, completion: nil)
         }
     }
     

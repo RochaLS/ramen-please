@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
                     self.errorLabel.text = error?.localizedDescription
                     self.errorLabel.textColor = #colorLiteral(red: 0.9137254902, green: 0.3098039216, blue: 0.3098039216, alpha: 1)
                 } else {
-                    self.performSegue(withIdentifier: "LoginToRestaurants", sender: self)
+//                    self.performSegue(withIdentifier: "LoginToRestaurants", sender: self)
                     print("User Logged in!")
                 }
             }

@@ -27,6 +27,8 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
         hud.textLabel.text = "Loading"
         hud.show(in: self.view, animated: true)
         

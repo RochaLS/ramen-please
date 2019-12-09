@@ -26,10 +26,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             var controller = UIViewController()
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if Auth.auth().currentUser != nil {
+            if Auth.auth().currentUser == nil {
                 controller = storyboard.instantiateViewController(withIdentifier: "RootNav") as! UINavigationController
             } else {
-                controller = storyboard.instantiateViewController(identifier: "WelcomeViewController") as! WelcomeViewController
+                controller = storyboard.instantiateViewController(identifier: "SecondNav") as! UINavigationController
             }
             window.rootViewController = controller
             self.window = window
