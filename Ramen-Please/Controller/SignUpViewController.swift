@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import NotificationBannerSwift
 
 class SignUpViewController: UIViewController {
 
@@ -27,6 +28,8 @@ class SignUpViewController: UIViewController {
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if error != nil {
+                    let banner = NotificationBanner(title: "Something is wrong!", subtitle: "\(error!.localizedDescription)", style: .danger)
+                    banner.show(on: self)
                     self.errorLabel.text = error?.localizedDescription
                     self.errorLabel.textColor = #colorLiteral(red: 0.9137254902, green: 0.3098039216, blue: 0.3098039216, alpha: 1)
                     print("Error when Signing up: \(error!)")

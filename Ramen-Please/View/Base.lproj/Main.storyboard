@@ -278,7 +278,6 @@
                                         </state>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="xOd-C8-LpT" eventType="touchUpInside" id="Tfi-1M-0gW"/>
-                                            <segue destination="vRa-0Y-6AQ" kind="presentation" identifier="LoginToRestaurants" modalPresentationStyle="fullScreen" id="gIv-2g-dBr"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWw-ve-CRz">
@@ -309,6 +308,7 @@
                         <outlet property="emailTextField" destination="6bZ-eZ-Fa9" id="FRB-Ii-Lda"/>
                         <outlet property="errorLabel" destination="nWw-ve-CRz" id="guH-DG-Lo0"/>
                         <outlet property="passwordTextField" destination="KR3-Re-Sly" id="agl-pK-ff1"/>
+                        <segue destination="vRa-0Y-6AQ" kind="presentation" identifier="LoginToRestaurants" modalPresentationStyle="fullScreen" id="6v0-kA-ANq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XlK-0N-kQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -518,7 +518,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Zey-e1-tt3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TCt-Fq-ioy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="RootNav" automaticallyAdjustsScrollViewInsets="NO" id="dV6-L7-3Xu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="jW5-W8-ZON"/>
@@ -538,6 +537,7 @@
                         <segue destination="1lL-qj-9xe" kind="relationship" relationship="rootViewController" id="Mcs-dD-H07"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TCt-Fq-ioy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1190" y="840"/>
         </scene>
@@ -588,7 +588,6 @@
                                         </state>
                                         <connections>
                                             <action selector="signUpButtonPressed:" destination="dgy-Qa-odj" eventType="touchUpInside" id="IAi-63-rBX"/>
-                                            <segue destination="vRa-0Y-6AQ" kind="presentation" identifier="SignUpToRestaurants" modalPresentationStyle="fullScreen" id="QiF-6X-hz4"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="1" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vba-tw-WgA">
@@ -620,6 +619,7 @@
                         <outlet property="emailTextField" destination="pwP-G4-Z0S" id="nDO-Tv-QZZ"/>
                         <outlet property="errorLabel" destination="vba-tw-WgA" id="nyj-KW-s3s"/>
                         <outlet property="passwordTextField" destination="ymM-TG-ZrA" id="EXx-Mc-t1v"/>
+                        <segue destination="vRa-0Y-6AQ" kind="presentation" modalPresentationStyle="fullScreen" id="ryS-Hi-Z0r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D6q-jV-aE2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -656,7 +656,7 @@
         <image name="arrow.up.arrow.down" catalog="system" width="64" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gIv-2g-dBr"/>
+        <segue reference="ryS-Hi-Z0r"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

@@ -16,6 +16,7 @@ target 'Ramen-Please' do
   pod 'SwipeCellKit'
   pod 'IQKeyboardManagerSwift'
   pod 'JGProgressHUD'
+  pod 'NotificationBannerSwift', '~> 3.0.0'
 
 
 end

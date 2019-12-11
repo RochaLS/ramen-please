@@ -12,6 +12,7 @@ import Alamofire
 import SwiftyJSON
 import Firebase
 import FirebaseAuth
+import NotificationBannerSwift
 
 
 class RestaurantViewController: UIViewController {
@@ -175,6 +176,8 @@ class RestaurantViewController: UIViewController {
             if error != nil {
                 print(error!)
             } else {
+                let banner = StatusBarNotificationBanner(title: "Added to Favorites List", style: .success)
+                 banner.show(on: self)
                 print("Data Saved!")
             }
         }

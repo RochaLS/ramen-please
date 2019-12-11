@@ -184,7 +184,7 @@ class RestaurantListViewController: UITableViewController, CLLocationManagerDele
         
         self.tableView.reloadData()
         refreshControl.endRefreshing()
-        hud.dismiss(afterDelay: 2.0, animated: true)
+        hud.dismiss(afterDelay: 1.0, animated: true)
     }
     
     
