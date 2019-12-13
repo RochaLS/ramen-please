@@ -11,7 +11,8 @@ import FirebaseAuth
 import NotificationBannerSwift
 
 class LoginViewController: UIViewController {
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +20,8 @@ class LoginViewController: UIViewController {
         emailTextField.placeholder = "Email Address"
         passwordTextField.placeholder = "Password"
     }
+    
+ 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
@@ -28,7 +31,7 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if error != nil {
                     print("Error on login.")
-                    let banner = NotificationBanner(title: "Something is wrong!", subtitle: "\(error!.localizedDescription)", style: .danger)
+                    let banner = NotificationBanner(title: "Something went wrong!", subtitle: "\(error!.localizedDescription)", style: .danger)
                     banner.show(on: self)
                     self.errorLabel.text = error?.localizedDescription
                     self.errorLabel.textColor = #colorLiteral(red: 0.9137254902, green: 0.3098039216, blue: 0.3098039216, alpha: 1)

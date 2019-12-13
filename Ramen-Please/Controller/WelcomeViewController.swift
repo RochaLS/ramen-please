@@ -16,7 +16,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(Auth.auth().currentUser)
+       
 
         // Do any additional setup after loading the view.
     }
@@ -24,5 +24,7 @@ class WelcomeViewController: UIViewController {
    override func viewWillAppear(_ animated: Bool) {
            self.navigationController?.isNavigationBarHidden = true
       }
+    
+  
 
 }

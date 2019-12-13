@@ -15,7 +15,7 @@ import JGProgressHUD
 
 class FavoritesTableViewController: UITableViewController, SwipeTableViewCellDelegate {
     
-    
+    let hud = JGProgressHUD(style: .dark)
     var favoriteRestaurants = [Restaurant]()
     
     var ref = Database.database().reference()
@@ -25,7 +25,7 @@ class FavoritesTableViewController: UITableViewController, SwipeTableViewCellDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let hud = JGProgressHUD(style: .dark)
+        
         hud.show(in: self.view, animated: true)
         
         gettingDataFromDB()
@@ -33,7 +33,6 @@ class FavoritesTableViewController: UITableViewController, SwipeTableViewCellDel
         
         
         print(ref)
-        hud.dismiss(afterDelay: 1.0, animated: true)
     }
     
     
@@ -80,6 +79,7 @@ class FavoritesTableViewController: UITableViewController, SwipeTableViewCellDel
         }
         
         deleteAction.image = UIImage(named: "delete")
+        deleteAction.backgroundColor = UIColor(hexString: "#E94F4F")
         
         
         
@@ -151,6 +151,7 @@ class FavoritesTableViewController: UITableViewController, SwipeTableViewCellDel
                     let favoriteRestaurant = Restaurant(name: restaurantName, address: restaurantAddress, rating: restaurantRating, priceLevel: restaurantPriceLevel, isOpen: false, lat: restaurantLat, lng: restaurantLng, id: restaurantID)
                     self.favoriteRestaurants.append(favoriteRestaurant)
                 }
+                self.hud.dismiss(afterDelay: 1.0, animated: true)
                 self.tableView.reloadData() // reloading here
             }
         })
